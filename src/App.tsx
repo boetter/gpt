@@ -31,7 +31,7 @@ function DeleteTemplateModalBody () {
   return (
     <div>
       <strong>
-        <div style={{color: "#777777"}}>Are you sure you want to delete the following template?</div>
+        <div style={{color: "#777777"}}>Er du sikker på, at du vil slette denne skabelon?</div>
         <div style={{color: "#333333"}}>{subs.useSelectedTemplateName()}</div>
       </strong>
     </div>
@@ -65,14 +65,14 @@ function TemplateDelete() {
   const deleteModal = () => {
     setModal({title: "Delete Template",
               body: <DeleteTemplateModalBody />,
-              footerButtons: [["Delete", { className: "primary", onClick: () => deleteTemplate(templateId)}],
-                              ["Cancel", {}]]})
+              footerButtons: [["Slet", { className: "primary", onClick: () => deleteTemplate(templateId)}],
+                              ["Fortryd", {}]]})
   }
 
   return (
     <Fragment> 
       <PipeSeparator />
-      <a className="red" onClick={deleteModal}> <icons.DeleteRedIcon/> Delete </a> 
+      <a className="red" onClick={deleteModal}> <icons.DeleteRedIcon/> Slet </a> 
     </Fragment>
   );
 }
@@ -179,7 +179,7 @@ function DeleteExampleModalBody() {
   return (
     <div>
       <strong>
-        <div style={{color: "#777777"}}>Are you sure you want to delete the following example?</div>
+        <div style={{color: "#777777"}}>Er du sikker på, at du vil slette det følgende eksempel?</div>
         <div style={{color: "#333333"}}>{exampleName}</div>
       </strong>
     </div>
@@ -194,8 +194,8 @@ function DeleteExample() {
   let deleteExampleModal = () => {
     setModal({title: "Delete Example",
               body: <DeleteExampleModalBody/>,
-              footerButtons: [["Delete", { className: "primary", onClick: deleteExample}],
-                              ["Cancel", {}]]})  
+              footerButtons: [["Slet", { className: "primary", onClick: deleteExample}],
+                              ["Fortryd", {}]]})  
   }
   
   return (
@@ -260,7 +260,7 @@ function CompletePrompt() {
   
   return (
     <pre className="ready-prompt">
-      { currentPrompt ? currentPrompt : "[Empty prompt, use the builder to create a prompt]" }
+      { currentPrompt ? currentPrompt : "[Tom prompt, brug værktøjet til at oprette en prompt]" }
     </pre>
   );
 }
@@ -280,10 +280,10 @@ function Header() {
 
   const initResetWorkspace = () => {
     setModal({
-      title: "Reset Workspace",
-      body: <div>After the reset all unsaved changes will be lost. <br/> Are you sure you want to reset the current workspace?</div>,
-      footerButtons: [["Reset", { className: "primary", onClick: resetWorkspace}],
-                      ["Cancel", {}]]
+      title: "Nulstil værktøjet",
+      body: <div>Efter nulstillingen vil alle ikke-gemte ændringer gå tabt. <br/> Er du sikker på, at du vil nulstille?</div>,
+      footerButtons: [["Nulstil", { className: "primary", onClick: resetWorkspace}],
+                      ["Fortryd", {}]]
     });
   }
 
@@ -294,11 +294,11 @@ function Header() {
     <div className='header'>
       <div className='container flex'>
         <div className='header-left'>
-          <h1>LLM Prompting</h1>
-          <div className="title-caption">Chat GPT, Bard, Claude2 , and others</div>
+          <h1>Skriv effektive prompts til alle sprogmodeller</h1>
+          <div className="title-caption">Virker på tværs af ChatGPT, Gemini, Claude, Copilot, mv.</div>
         </div>
         <div className='header-right'>
-          <a className="create-template button" onClick={() => setModalOpen(true)}> <icons.FolderPlusIcon/> Create Template</a>
+          <a className="create-template button" onClick={() => setModalOpen(true)}> <icons.FolderPlusIcon/> Opret skabelon</a>
           <Trigger action = {["click"]} 
                    maskClosable={false} 
                    popupAlign = {{points: ['tr', 'br'],  offset: [0, 5]}}
@@ -326,8 +326,8 @@ function App() {
     <div className="App">
       <Header/>
       <div className="container">
-        <h2>Select a template: <TemplateSelector/></h2>
-        <h2>Build a Prompt: <BuildPromptMenu/></h2>
+        <h2>Vælg skabelon: <TemplateSelector/></h2>
+        <h2>Byg en prompt: <BuildPromptMenu/></h2>
         <PromptBuilder promptTemplate={template}/>
         <h2>Prompt: <CurrentPromptMenu /></h2>
         <CompletePrompt />
