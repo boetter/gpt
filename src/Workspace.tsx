@@ -36,11 +36,11 @@ function saveFile(content: string, options: any, onSuccess: Function) {
 export function WorkspaceMenuOptions(): [{key: string, label: any}] {
   let [openFileHandle] = useAtom(openFileHandleAtom);
 
-  let options: [{key: string, label: any}] = [{key: "load", label: <Fragment><icons.Folder/> Load Workspave</Fragment>}];
+  let options: [{key: string, label: any}] = [{key: "load", label: <Fragment><icons.Folder/> Indlæs opsætning</Fragment>}];
   if (openFileHandle) 
-    options.push({key: "save", label: <Fragment><icons.Diskette/> Save Workspace</Fragment>});
-  options.push({key: "save-as", label: <Fragment><icons.Download/> Save Workspace As ...</Fragment>});
-  options.push({key: "reset", label: <div className="red"><icons.DeleteRedIcon/> Reset Workspace</div>});
+    options.push({key: "save", label: <Fragment><icons.Diskette/> Gem opsætning</Fragment>});
+  options.push({key: "save-as", label: <Fragment><icons.Download/> Gem opsætning som...</Fragment>});
+  options.push({key: "reset", label: <div className="red"><icons.DeleteRedIcon/> Nulstil opsætning</div>});
 
   return options;
 }
@@ -71,6 +71,6 @@ export function onWorkspaceMenuItemClick(key: string, label: any, loadWorkspace:
       resetWorkspace();
     } break;  
     default:
-      console.error("Unknown workspace action");  
+      console.error("Ukendt handling");  
   }
 }

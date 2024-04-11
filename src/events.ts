@@ -58,7 +58,7 @@ export const setTemplateAtom = atom<null, [any], void>(null, (get, set, template
     if (!template.id) { 
         template.id = crypto.randomUUID();
         set(appState.templates, [...templates, template])
-        toast.success("Template created");
+        toast.success("Skabelon oprettet");
     } else {
         let updatedTemplates = templates.reduce( (acc, t) => {
             if (t.id === template.id)
@@ -68,7 +68,7 @@ export const setTemplateAtom = atom<null, [any], void>(null, (get, set, template
             return acc;
         }, []);
         set(appState.templates, updatedTemplates)
-        toast.success("Template updated");
+        toast.success("Skabelon opdateret");
     }
     set(writeStateLocalStorageAtom);    
 });
@@ -82,7 +82,7 @@ export const deleteTemplateAtom = atom<null, [string], void>(null, (get, set, te
     if (templateIndex >= updatedTemplates.length && templateIndex > 0)
         set(appState.templateIndex, templateIndex - 1)
     set(appState.templates, updatedTemplates);
-    toast.success("Template Deleted Successfuly");
+    toast.success("Skabelon fjernet");
     set(writeStateLocalStorageAtom);
 });
 
@@ -111,7 +111,7 @@ export const createExampleAtom =  atom<null, [], void>(null, (get, set) => {
     
     set(appState.templates, templates.map( (t, i) => i === templateIndex ? {...t, examples: updatedExamples} : t));
     set(appState.loadedExampleId, exampleId);
-    toast.success("Example saved");
+    toast.success("Eksempel gemt");
     set(writeStateLocalStorageAtom);    
 });
 
@@ -126,7 +126,7 @@ export const updateExampleAtom = atom<null, [string | null], void>(null, (get, s
                     {...t, examples: [...t.examples].map( (ex) => ex.id === exampleId ? {...ex, values: {...currentValues}} : ex)} 
                     : t)
     );
-    toast.success("Example updated");
+    toast.success("Eksempel opdateret");
     set(writeStateLocalStorageAtom);    
 });
 
@@ -142,7 +142,7 @@ export const deleteExampleAtom = atom<null, [], void>(null, (get, set) => {
                     {...t, examples: [...t.examples].filter( (e) => e.id !== loadedExampleId)} 
                     : t)
     );
-    toast.success("Example deleted");
+    toast.success("Eksempel fjernet");
     set(writeStateLocalStorageAtom);    
 });
 

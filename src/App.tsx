@@ -89,7 +89,7 @@ function TemplateSelector() {
       <TemplateList />
       <span style={{fontSize: 12, marginLeft: 3}}>
         [
-        <a onClick={() => setModalOpen(templateId)}> <icons.EditIcon/> Edit </a>
+        <a onClick={() => setModalOpen(templateId)}> <icons.EditIcon/> Rediger </a>
         {templateCount > 1 ? <TemplateDelete/> : null}
         ]
       </span>
@@ -107,7 +107,7 @@ function ExampleNameModalBody() {
   let setValue = state.useSetNewExampleName();
   return (
     <div>
-      <div><strong>Enter a name for the example:</strong></div>
+      <div><strong>Indtast et navn til eksemplet:</strong></div>
       <div style={{userSelect: "none"}}>
         <input type = "text" style={{width: "100%"}} value={exampleName} onChange={ (e) => setValue(e.target.value)}/>
       </div>
@@ -125,7 +125,7 @@ function ExamplesList() {
     <Trigger  popup = {<Menu value = {exampleId} options={exampleOptions} onMouseDown = { loadExample }/>}
               popupAlign = {{points: ["tl", "bl"], offset: [0, 5]}}>
       <a>
-        <icons.FileTextIcon /> {" Examples (" + examples.length + ")"} <icons.CaretDown />
+        <icons.FileTextIcon /> {" Eksempler (" + examples.length + ")"} <icons.CaretDown />
       </a>
     </Trigger>
   );
@@ -136,16 +136,16 @@ function SetAsExample() {
   let createExample = useSetAtom(events.createExampleAtom);
 
   const createExampleModal = () => {
-    setModal({ title: "Create Example",
+    setModal({ title: "Opret eksempel",
                body: <ExampleNameModalBody/>,
-               footerButtons: [["Create", { className: "primary", onClick: () => createExample()}],
-                               ["Cancel", {}]]}) 
+               footerButtons: [["Opret", { className: "primary", onClick: () => createExample()}],
+                               ["Fortryd", {}]]}) 
   }
   
   return (
     <Fragment>
       <a onClick = { createExampleModal }>
-        <icons.Plus/> {" Set As Example"}
+        <icons.Plus/> {" Gem som eksempel"}
       </a>
       <PipeSeparator/>
     </Fragment> 
@@ -160,7 +160,7 @@ function UpdateExample() {
   return (
     isExampleModified ?
       <Fragment>
-        <a onClick={ () => updateExample(loadedExampleId) }><icons.EditIcon/> {" Update Example"}</a>
+        <a onClick={ () => updateExample(loadedExampleId) }><icons.EditIcon/> {" Opdater eksempel"}</a>
         <PipeSeparator/>
       </Fragment>
       : null
@@ -170,7 +170,7 @@ function UpdateExample() {
 function ClearExample() {
   let loadExample = useSetAtom(events.loadExampleAtom);
   return (
-    <a onClick = {() => loadExample(null)}><icons.CloseCircleIcon /> {" Clear"}</a> 
+    <a onClick = {() => loadExample(null)}><icons.CloseCircleIcon /> {" Nulstil"}</a> 
   );  
 }
 
@@ -192,7 +192,7 @@ function DeleteExample() {
   let setModal = useSetAtom(useModal());
 
   let deleteExampleModal = () => {
-    setModal({title: "Delete Example",
+    setModal({title: "Slet eksempel",
               body: <DeleteExampleModalBody/>,
               footerButtons: [["Slet", { className: "primary", onClick: deleteExample}],
                               ["Fortryd", {}]]})  
@@ -203,7 +203,7 @@ function DeleteExample() {
       <Fragment>
         <PipeSeparator/>
         <a className="red" onClick = {deleteExampleModal}>
-          <icons.DeleteRedIcon /> {" Delete Example"}
+          <icons.DeleteRedIcon /> {" Slet eksempel"}
         </a> 
       </Fragment>
       : null
@@ -238,7 +238,7 @@ function BuildPromptMenu() {
 
 function copyToClipboard(currentPrompt: string) {
   copy(currentPrompt);
-  toast.success("Propmpt Copied to Clipboard");
+  toast.success("Prompt er kopieret til udklipsholder");
 }
 
 function CurrentPromptMenu() {
@@ -248,7 +248,7 @@ function CurrentPromptMenu() {
 
   return (
     <span style={{fontSize: 12}}>
-      [ <a onClick={() => {copyToClipboard(currentPrompt)}}> <icons.CopyIcon /> Copy to Clipboard</a> ]
+      [ <a onClick={() => {copyToClipboard(currentPrompt)}}> <icons.CopyIcon /> Kopier til udklipsholder</a> ]
     </span>
   );
 }

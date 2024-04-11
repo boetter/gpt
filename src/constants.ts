@@ -85,16 +85,16 @@ const FORMATS: Array<string> = [
 ];
 
 export const PROMPT_TEMPLATE: ITemplate = {
-    name: "Main Template",
+    name: "Primær skabelon",
     id: crypto.randomUUID(),
     promptVariableAttributes: {
-        role: pvAttr(null, "Vælg en rolle:", "[Specify a role]",  ROLES, null),
-        needs: pvAttr(null, "What do you need?", "[What do you need?]", null, null),
-        task: pvAttr(null, "What is the task?", "[Enter a task]", TASKS,  null),
-        details: pvAttr(null, "Details:", "[Enter details]", null, null),
+        role: pvAttr(null, "Vælg en rolle:", "[Specificer en rolle]",  ROLES, null),
+        needs: pvAttr(null, "Hvad har du brug for?", "[Hvad har du brug for?]", null, null),
+        task: pvAttr(null, "Hvad er opgaven?", "[Indtast en opgave]", TASKS,  null),
+        details: pvAttr(null, "Detaljer:", "[Indtast detaljer]", null, null),
         exclusion: pvAttr(null, "Exclusions:", "[Enter exclusion]", null, null),
-        format: pvAttr(null, "Select format:", "[Select a format]", FORMATS, null),
-        example: pvAttr(null, "Example:", "[Enter an example]", null, null)
+        format: pvAttr(null, "Vælg format:", "[Vælg et format]", FORMATS, null),
+        example: pvAttr(null, "Eksempel:", "[Indtast et eksempel]", null, null)
     },
     sourceTemplate: "[Act like a $ROLE, <br>][I need a $NEEDS, <br>][you will $TASK, <br>][in the process, you should $DETAILS, <br>][please $EXCLUSION, <br>][input the final result in a $FORMAT, <br>][here is an example: $EXAMPLE]",
     template: [
