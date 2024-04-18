@@ -335,7 +335,7 @@ function App() {
       <TemplateBuilder onSubmit = { setTemplate }/>
       <DialogComponent />
       <div className="container">
-        <h2>Test fra Jacob</h2>
+        <h2>Dette værktøj er bygget af bulgarske <a href="https://github.com/mitenmit/gpt">Dimitar Dimitrov</a>, men oversat til dansk af <a href="http://jacob.boetter.dk">Jacob Bøtter</a>.</h2>
       </div>
       <Toaster position="bottom-center"/>
     </div>
