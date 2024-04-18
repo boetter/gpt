@@ -89,42 +89,42 @@ export const PROMPT_TEMPLATE: ITemplate = {
         needs: pvAttr(null, "Hvad har du brug for?", "[Hvad har du brug for?]", null, null),
         task: pvAttr(null, "Hvad er opgaven?", "[Indtast en opgave]", TASKS,  null),
         details: pvAttr(null, "Detaljer:", "[Indtast detaljer]", null, null),
-        exclusion: pvAttr(null, "Exclusions:", "[Enter exclusion]", null, null),
+        exclusion: pvAttr(null, "Eksluderinger:", "[Indtast emner der bør undgås]", null, null),
         format: pvAttr(null, "Vælg format:", "[Vælg et format]", FORMATS, null),
         example: pvAttr(null, "Eksempel:", "[Indtast et eksempel]", null, null)
     },
-    sourceTemplate: "[Opfør dig som en $ROLE, <br>][Jeg har brug for $NEEDS, <br>][du vil $TASK, <br>][ undervejs bør du $DETAILS, <br>][venligst $EXCLUSION, <br>][formater det endelige resultat som $FORMAT, <br>][her er et eksempel: $EXAMPLE]",
+    sourceTemplate: "[Opfør dig som en $ROLE, <br>][Jeg har brug for $NEEDS, <br>][du vil $TASK, <br>][ undervejs bør du $DETAILS, <br>][venligst undgå $EXCLUSION, <br>][formater det endelige resultat som $FORMAT, <br>][her er et eksempel: $EXAMPLE]",
     template: [
         ["Opfør dig som en ", pv("role"), ",", "<br/>"],
         ["Jeg har brug for ", pv("needs"), ", ", "<br/>"],
         ["du vil ", pv("task"), ", ", "<br/>"],
         [" undervejs bør du ", pv("details"), ", ", "<br/>"],
-        ["venligst ", pv("exclusion"), ", ", "<br/>"],
+        ["venligst undgå ", pv("exclusion"), ", ", "<br/>"],
         ["formater det endelige resultat som  ", pv("format"), ", ", "<br/>"],
         ["her er et eksempel: ", pv("example")]
     ],
     examples: [
         {
-            name: "Full Example",
+            name: "Langt eksempel",
             id: crypto.randomUUID(),
             values: {
-                role: "SEO Professional Writer",
-                needs: "optimized blog post",
-                task: "research keywords and incorporate them naturally into the content",
-                details: "focus on readability, relevance and proper keyword placement",
-                exclusion: "avoid keyword stuffing or over-optimisation",
-                format: "well structured format",
-                example: "title \"Top 10 Tips for Effective SEO Writing: Boost Your Content's Visibility\""
+                role: "Erfaren sælger",
+                needs: "et udkast til et tilbud på en reklamekampagne",
+                task: "generere et komplet udkast",
+                details: "fokusere på at formulere dig både kreativt og præcist",
+                exclusion: "undgå alt for mange buzz-words",
+                format: "velstruktureret format",
+                example: "overskrift \"Tilbud på reklamekampagne der kan løfte synligheden af Nielsens Vinduer A/S\""
             }
         },
         {
-            name: "Short Example",
+            name: "Kort eksempel",
             id: crypto.randomUUID(),
             values: {
-                role: "SEO Professional Writer",
-                task: "research keywords and incorporate them naturally into the content",
-                details: "focus on readability, relevance and proper keyword placement",
-                format: "well structured format"
+                role: "Erfaren sælger",
+                task: "analysere markedet for reklamekampagner",
+                details: "fokuser på det danske marked og hold analysen kort",
+                format: "velstruktureret format"
             }
         }
     ]
