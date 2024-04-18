@@ -295,7 +295,6 @@ function Header() {
       <div className='container flex'>
         <div className='header-left'>
           <h1>Skriv effektive prompts til alle sprogmodeller</h1>
-          <div className="title-caption">Virker på tværs af ChatGPT, Gemini, Claude, Copilot, mv.</div>
           <div className="title-caption">Virker på tværs af ChatGPT, Gemini, Claude, Copilot, mv.</div>          
         </div>
         <div className='header-right'>
@@ -335,6 +334,9 @@ function App() {
       </div>
       <TemplateBuilder onSubmit = { setTemplate }/>
       <DialogComponent />
+      <div className="container">
+        <h2>Test fra Jacob</h2>
+      </div>
       <Toaster position="bottom-center"/>
     </div>
   );
