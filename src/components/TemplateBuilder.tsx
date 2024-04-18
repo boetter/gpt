@@ -15,7 +15,7 @@ import Trigger from '@rc-component/trigger';
 
 type VariableAttributes = Record<string, any>;
 
-const templateSrc = "[My first block \n][Block with variable $block ][and another block $block1 <br>][examples: $examples]\n[the prompt can have new lines also]";
+const templateSrc = "[Mit første afsnit \n][Afsnit med variabel $varibel ][og endnu et afsnit med $enandenvariabel <br>][eksempler: $eksempler]";
 
 const activeTabAtom = atom( 0 );
 const templateNameAtom = atom( "My Template" );
@@ -134,19 +134,19 @@ function Header() {
     return (
         <div className="modal-header">
             <h3>
-                Template Builder
+                Opret skabelon
                 <a style={clearIconStyle} onClick={() => setModalOpen(false)}> <ClearIcon /></a>
             </h3>
-            <div className="title">Template name:</div>
+            <div className="title">Navn på skabelon:</div>
             <input tabIndex={1} value={templateName} style={{width: "100%"}} onChange={e => setTemlateName(e.target.value)}/>
 
             <div style={{lineHeight: "50px"}}>
                 <ul className="tabs">
                     <li className="tab-item">
-                        <button tabIndex={1} className={ activeTab === 0 ? "selected" : ""} onClick={ (e) => {e.currentTarget.blur(); setActiveTab(0); }}><SourceCodeIcon/> Source</button>
+                        <button tabIndex={1} className={ activeTab === 0 ? "selected" : ""} onClick={ (e) => {e.currentTarget.blur(); setActiveTab(0); }}><SourceCodeIcon/> Skabelon</button>
                     </li>
                     <li className="tab-item">
-                        <button tabIndex={1} className={activeTab === 1 ? "selected" : ""} onClick={ (e) => {e.currentTarget.blur(); setActiveTab(1)}}><SettignsIcon/> Variable Settings</button>
+                        <button tabIndex={1} className={activeTab === 1 ? "selected" : ""} onClick={ (e) => {e.currentTarget.blur(); setActiveTab(1)}}><SettignsIcon/> Variabler</button>
                     </li>
                 </ul>
             </div>
@@ -201,20 +201,20 @@ function BodySource() {
 
     return (
         <Fragment>
-            <div className="title">Template source:</div>
+            <div className="title">Opbygning af skabelon:</div>
             <textarea style={{width: "100%"}} rows={7} value={templateSource} onChange={ e => { setTemplateSource(e.target.value)}}></textarea>
             <div style={{fontSize: 11}}>
                 <div style={{display: "inline-block", marginRight: 5, verticalAlign: "middle"}}><QuestionCircleIcon/></div>
-                <span><strong> [...]</strong>  - block (everything should be in a block); </span>
-                <span><strong> $name</strong>  - defines a variable (one variable per block); </span>
-                <span><strong> {"<br>"}</strong> - new line only in the prompt builder; </span>
-                <span><strong> new line</strong>  - new line in the builder and in the final prompt; </span>
+                <span><strong> [...]</strong>  - afsnit (alt bør være i et afsnit); </span>
+                <span><strong> $varibelnavn</strong>  - definer en variabel (en variabel per afsnit); </span>
+                <span><strong> {"<br>"}</strong> - ny linje i værktøjet, men ikke i prompten; </span>
+                <span><strong> new line</strong>  - ny linje i værktøj og prompt; </span>
             </div>
-            <div className="title">Prompt builder preview:</div>
+            <div className="title">Eksempel på prompt værktøj:</div>
             <PromptBuilder  promptTemplate={{templateSource: templateSource,
                                             template: template}}
                             style={{fontSize: 14}}/>
-            <div className="title">Prompt preview:</div>
+            <div className="title">Eksempel på prompt:</div>
             <pre className="ready-prompt">
                 { currentPrompt }
             </pre>
@@ -376,7 +376,7 @@ function BodySettings() {
                       onClick = { (k) => setSelectedVariable(k) }  />
             </div>   
             <div style = {{width: "32%"}}>
-                <div className = "title">Variable Attributes:</div>
+                <div className = "title">Indstilling af varibel:</div>
                 <SelectedVariableAttributesContainer/>
             </div>
 
