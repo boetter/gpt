@@ -228,7 +228,7 @@ function BodySource() {
 
 function componentLabel(component: any) {
     switch(true) {
-        case (component === null || component === undefined || component === "text"): return "Text"
+        case (component === null || component === undefined || component === "text"): return "Tekst"
         case (component === "menu"): return "Menu"
     } 
 }
@@ -242,7 +242,7 @@ function VariableComponentType () {
             <div className="title">Type:</div>
             <Trigger action = {["click"]}
                      maskClosable = {false}
-                     popup = {<List items = {[{key: "text", label: "Text"}, {key: "menu", label: "Menu"}]}
+                     popup = {<List items = {[{key: "text", label: "Tekst"}, {key: "menu", label: "Menu"}]}
                                     onClick = { (k) => {setVariableAttribute("component", k)}}/>}
                      stretch = "minWidth"
                      popupStyle = {{width: "20%"}}
@@ -283,10 +283,10 @@ function SelectedVariableAttributes() {
         <Fragment>
             <VariableComponentType />
             <VariableAttributeComponent title="Placeholder:" attribute="placeholder"/>
-            <VariableAttributeComponent title="Empty Value:" attribute="emptyValue"/>
+            <VariableAttributeComponent title="Værdi, hvis tom:" attribute="emptyValue"/>
 
             { recordToPvAttr(variableAttributes).getComponent() === "menu" ? 
-              <VariableAttributeComponent title="Title:" attribute="title"/> : null}
+              <VariableAttributeComponent title="Titel:" attribute="title"/> : null}
         </Fragment>
     );
 }
@@ -320,7 +320,7 @@ function EditInsertedOption(props: MenuOptionProps) {
             <div style={{display: "inline-block", verticalAlign: "middle", color: "#1890ff"}}><Plus/></div>
             <input type = "text" 
                    style = {{border: "0px", outline: "none", color: !isOptionUnique ? "red" : ""}} 
-                   placeholder = {"Insert Option (↵ Enter)"}
+                   placeholder = {"Indsæt valgmulighed (↵ Enter)"}
                    value = { insertedOption }
                    onChange = { (e) => { setInsertedOption( e.target.value ) } }
                    onKeyDown={ (e) => {
@@ -369,7 +369,7 @@ function BodySettings() {
     return (
         <div style = {{display: "flex", gap: "2%", height: "100%"}}>
             <div style = {{width: "32%", display: "flex", flexDirection: "column"}}>
-                <div className="title">Variables:</div>
+                <div className="title">Variabler:</div>
                 <List items = { variables }
                       selected = { selectedVariable }
                       style = {{border: "1px solid #DFDFDF", borderRadius: 7, flexGrow: 1, height: 0, overflowY: "auto"}}
@@ -382,7 +382,7 @@ function BodySettings() {
 
             {recordToPvAttr(variableAttributes).getComponent() === "menu" ?
                 <div style={{width: "32%", display: "flex", flexDirection: "column"}}>
-                    <div className="title">Menu Options:</div>
+                    <div className="title">Menu indstillinger:</div>
                     <div style={{border: "1px solid #DFDFDF", borderRadius: 7, padding: 10, flexGrow: 1, height: 0, overflowY: "auto"}}>
                         <ReactGrid
                             cols = { 1 }
@@ -442,7 +442,7 @@ function Footer(props: TemplateBuilderProps) {
             <a  className="button"
                 style={{padding: "7px 21px", fontWeight: "bold"}}
                 onClick={ () => { props.onSubmit(template); setModalOpen(false) } }>
-                Submit
+                Gem
             </a>
         </div>
     );
