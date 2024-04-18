@@ -98,13 +98,13 @@ export const PROMPT_TEMPLATE: ITemplate = {
     },
     sourceTemplate: "[Act like a $ROLE, <br>][I need a $NEEDS, <br>][you will $TASK, <br>][in the process, you should $DETAILS, <br>][please $EXCLUSION, <br>][input the final result in a $FORMAT, <br>][here is an example: $EXAMPLE]",
     template: [
-        ["Act like a ", pv("role"), ",", "<br/>"],
-        ["I need a ", pv("needs"), ", ", "<br/>"],
-        ["you will ", pv("task"), ", ", "<br/>"],
-        [" in the process, you should ", pv("details"), ", ", "<br/>"],
-        ["please ", pv("exclusion"), ", ", "<br/>"],
-        ["input the final result in a ", pv("format"), ", ", "<br/>"],
-        ["here is an example: ", pv("example")]
+        ["Opfør dig som en ", pv("role"), ",", "<br/>"],
+        ["Jeg har brug for ", pv("needs"), ", ", "<br/>"],
+        ["du vil ", pv("task"), ", ", "<br/>"],
+        [" undervejs bør du ", pv("details"), ", ", "<br/>"],
+        ["venligst ", pv("exclusion"), ", ", "<br/>"],
+        ["formater det endelige resultat som  ", pv("format"), ", ", "<br/>"],
+        ["her er et eksempel: ", pv("example")]
     ],
     examples: [
         {
